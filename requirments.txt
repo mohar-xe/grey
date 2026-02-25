@@ -2,3 +2,4 @@ arxiv
 requests
 docling
 re
+pydantic_settings
