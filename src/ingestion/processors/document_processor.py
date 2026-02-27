@@ -1,8 +1,8 @@
 from docling.document_converter import DocumentConverter
 from pathlib import Path
 from urllib.parse import urlparse
-from grey.src.core.exceptions import ProcessingError
-from grey.src.core.constants import SUPPORTED_EXTENSIONS
+from core.exceptions import ProcessingError
+from core.constants import SUPPORTED_EXTENSIONS
 
 def _is_url(url: str) -> bool:
     parsed = urlparse(url)

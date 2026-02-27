@@ -1,26 +1,47 @@
-# Grey
+# GREY
 
-Grey is a personal knowledge system I'm building while learning AI engineering from Ed Donner's Udemy course. He is an awesome teacher, and I love his enthusiasm for the subject. I plan to fold in everything I pick up from the course and whatever else I come across along the way.
+GREY is an advanced multimodal memory and intelligence engine designed to transform disparate, unstructured data streams into a coherent, evolving knowledge ecosystem. By synthesizing multi-agent orchestration with a sophisticated memory hierarchy, the system functions as a digital cortex capable of ingestion, reflection, and complex reasoning.
 
-## What is this
+---
 
-I consume a lot of information daily -- papers, videos, articles -- but I forget most of it by the end of the day. That is what I want to fix. Grey is my attempt at building a system that can ingest what I read and watch, remember it for me, and let me query it later in a way that actually makes sense.
+## THE INTELLIGENCE FRAMEWORK
 
-Think of it as note-taking on steroids. Instead of manually organizing highlights and bookmarks, the idea is to throw content at it and have it do the heavy lifting -- breaking things down, storing them intelligently, and surfacing the right pieces when I need them.
+The architecture of GREY is built upon a layered foundation that prioritizes the transformation of raw information into actionable insights.
 
-## Scope
+### MULTI-AGENT ORCHESTRATION
 
-The project covers a few key areas:
+The system utilizes a specialized agentic layer to manage the lifecycle of information. This includes autonomous coordination of data extraction, the structured construction of knowledge graphs, and a sophisticated query planner that decomposes user intent into multi-stage retrieval strategies.
 
-- **Ingestion** -- Pulling in content from different sources like local files, online papers, and video platforms. The goal is to support whatever I find myself consuming regularly.
-- **Processing** -- Taking raw content and turning it into something structured and searchable. This means splitting things into meaningful pieces, extracting useful metadata, and generating representations that a machine can work with.
-- **Storage and Retrieval** -- Persisting everything in a way that supports fast, relevant search. When I ask a question, I want the system to find the right context, not just keyword matches.
-- **Query** -- The actual question-answering layer. Retrieve the relevant pieces, assemble them into context, and generate a coherent answer with references back to the original source.
+### MULTIMODAL INGESTION PIPELINE
 
-## Status
+GREY processes information through a multi-stage pipeline designed for diverse media types.
 
-This is a work in progress. Some parts are functional, some are still being figured out. I'm building it incrementally as I learn, so expect rough edges and frequent changes.
+* **Visual and Auditory Analysis**: The engine performs deep analysis of video content, integrating acoustic transcription with scene detection and optical character recognition.
+* **Structural Extraction**: Beyond simple text parsing, the system identifies abstract concepts, entities, and thematic relationships to build a high-fidelity internal representation.
+* **Web and Document Processing**: Specialized processors normalize content from varied sources, ensuring that data is stripped of noise and optimized for semantic storage.
 
-## Acknowledgements
+### MEMORY HIERARCHY AND EVOLUTION
 
-Big thanks to Ed Donner for putting together a genuinely great course. A lot of the foundational ideas here come directly from his teaching.
+Memory within GREY is not static; it is managed through a three-tiered hierarchy designed for persistence and relevance.
+
+* **Hybrid Storage**: The architecture maintains high-dimensional vector spaces for semantic retrieval alongside a graph-based relational store for complex link analysis.
+* **Contextual Awareness**: A dedicated reasoning engine tracks temporal shifts and active session context, allowing the system to understand how information evolves over time.
+* **Reflective Compression**: Periodic background processes scan the memory layers to identify redundancies, merging related concepts into meta-summaries and strengthening frequently accessed associations.
+
+---
+
+## REEL INTELLIGENCE
+
+A primary pillar of the GREY framework is its specialized capacity for video analysis and strategic content deconstruction. The system moves beyond simple summaries to analyze the "DNA" of video content, identifying hook structures, storytelling patterns, and virality signals. This allows for the mapping of content mechanics against broader knowledge trends, providing a dashboard-level view of how information is effectively communicated in visual formats.
+
+---
+
+## PERFORMANCE AND RIGOR
+
+To ensure the integrity of the generated insights, GREY incorporates a comprehensive evaluation suite. The system is continuously benchmarked against ground-truth datasets to measure retrieval precision and the faithfulness of generated responses. This commitment to technical rigor ensures that the intelligence engine remains both accurate and resilient as the underlying knowledge base expands.
+
+---
+
+*Note: GREY is currently under active development. This documentation reflects the architectural vision and core capabilities of the evolving system.*
+
+Would you like me to expand on the specific metrics used in the evaluation suite or the logic behind the reflective compression layer?
