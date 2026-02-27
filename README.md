@@ -30,12 +30,6 @@ Memory within GREY is not static; it is managed through a three-tiered hierarchy
 
 ---
 
-## REEL INTELLIGENCE
-
-A primary pillar of the GREY framework is its specialized capacity for video analysis and strategic content deconstruction. The system moves beyond simple summaries to analyze the "DNA" of video content, identifying hook structures, storytelling patterns, and virality signals. This allows for the mapping of content mechanics against broader knowledge trends, providing a dashboard-level view of how information is effectively communicated in visual formats.
-
----
-
 ## PERFORMANCE AND RIGOR
 
 To ensure the integrity of the generated insights, GREY incorporates a comprehensive evaluation suite. The system is continuously benchmarked against ground-truth datasets to measure retrieval precision and the faithfulness of generated responses. This commitment to technical rigor ensures that the intelligence engine remains both accurate and resilient as the underlying knowledge base expands.
