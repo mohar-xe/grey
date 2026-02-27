@@ -37,5 +37,3 @@ To ensure the integrity of the generated insights, GREY incorporates a comprehen
 ---
 
 *Note: GREY is currently under active development. This documentation reflects the architectural vision and core capabilities of the evolving system.*
-
-Would you like me to expand on the specific metrics used in the evaluation suite or the logic behind the reflective compression layer?
