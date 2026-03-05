@@ -15,3 +15,6 @@ class EmbeddingError(GreyBaseError):
 
 class ProcessingError(GreyBaseError):
     pass
+
+class ValueError(ProcessingError):
+    pass

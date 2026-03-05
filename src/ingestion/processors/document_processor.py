@@ -1,31 +1,62 @@
-from docling.document_converter import DocumentConverter
+import time
 from pathlib import Path
-from urllib.parse import urlparse
+from typing import List, Literal
 from core.exceptions import ProcessingError
-from core.constants import SUPPORTED_EXTENSIONS
 
-def _is_url(url: str) -> bool:
-    parsed = urlparse(url)
-    return parsed.scheme in ('http', 'https')
+from langchain_community.document_loaders import TextLoader, PyPDFLoader
+from langchain_core.documents import Document
 
-def docling_convert(source: str) -> str:
-    converter = DocumentConverter()
-    result = converter.convert(source).document
-    return result.export_to_markdown()
+from docling.document_converter import DocumentConverter
 
-def text_processor(source: str) -> str:
-    if _is_url(source):
-        try:
-            return docling_convert(source)
-        except Exception as e:
-            raise ProcessingError(f"Error processing URL {source}: {e}")
-    else:
-        path = Path(source)
-        if not path.exists():
-            raise ProcessingError(f"File not found: {source}")
-        if path.suffix.lower() not in SUPPORTED_EXTENSIONS:
-            raise ProcessingError(f"Unsupported file type: {path.suffix}")
-        try:
-            return docling_convert(source)
-        except Exception as e:
-            raise ProcessingError(f"Error processing file {source}: {e}")
+class DocumentIngester:
+    def __init__(self):
+        self.docling_converter = DocumentConverter()
+
+    def load(self, file_path: str | Path, method: Literal["langchain", "docling"] = "langchain") -> List[Document]:
+        
+        file_path = Path(file_path)
+        if not file_path.exists():
+            raise ProcessingError(f"File not found: {file_path}")
+
+        file_extension = file_path.suffix.lower()
+
+        if method == "docling":
+            if file_extension == ".txt":
+                print(f"Warning: Docling does not natively support .txt files. Falling back to LangChain TextLoader for {file_path.name}.")
+                return self._load_text_langchain(file_path)
+            return self._load_with_docling(file_path)
+        
+        elif method == "langchain":
+            if file_extension == ".txt":
+                return self._load_text_langchain(file_path)
+            elif file_extension == ".pdf":
+                return self._load_pdf_langchain(file_path)
+            else:
+                raise ProcessingError(f"LangChain routing not implemented for {file_extension}")
+        
+        else:
+            raise ProcessingError(f"Unknown method: {method}. Choose 'langchain' or 'docling'.")
+
+    def _load_text_langchain(self, file_path: Path) -> List[Document]:
+        print(f"Loading {file_path.name} using LangChain TextLoader...")
+        loader = TextLoader(str(file_path), encoding="utf-8")
+        return loader.load()
+
+    def _load_pdf_langchain(self, file_path: Path) -> List[Document]:
+        print(f"Loading {file_path.name} using LangChain PyPDFLoader...")
+        loader = PyPDFLoader(str(file_path))
+        return loader.load()
+
+    def _load_with_docling(self, file_path: Path) -> List[Document]:
+        print(f"Loading {file_path.name} using Docling...")
+        conversion_result = self.docling_converter.convert(str(file_path))
+        text_content = conversion_result.document.export_to_markdown()
+        
+        metadata = {
+            "source": str(file_path),
+            "title": file_path.name,
+            "parser": "docling",
+            "file_type": file_path.suffix,
+            "timestamp": time.time()
+        }
+        return [Document(page_content=text_content, metadata=metadata)]
